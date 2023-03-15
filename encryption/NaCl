@@ -1,7 +1,16 @@
 #!bin/bash
 echo -ne -n -e "This require there: NaCl (Networking and Cryptography library)\nlib: libsodium-dev, you decide install it? y/n";read anslib;
 if [ $anslib == "y" ]; then
-sudo apt-get install libsodium-dev nacl
+sudo apt-get install libsodium-dev
+echo -ne -n -e "Download and compile NaCl (Networking and Cryptography library)? y/n";read anslib;
+  if [ $anslib == "y" ]; then
+  wget https://hyperelliptic.org/nacl/nacl-20110221.tar.bz2
+  bunzip2 < nacl-20110221.tar.bz2 | tar -xf -
+  cd nacl-20110221
+  ./do
+  else
+   echo "";
+  fi
 else
 echo "";
 fi
