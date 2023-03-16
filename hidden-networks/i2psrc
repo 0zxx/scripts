@@ -18,3 +18,7 @@ sudo ln -s /opt/i2p/i2prouter /usr/bin/i2prouter
 
 # Start i2p
 i2prouter start
+
+# Disable autostart on boot
+sudo systemctl disable i2p.service
+sudo systemctl disable i2prouter.service
