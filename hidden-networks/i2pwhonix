@@ -30,3 +30,14 @@ fi
 echo "webpanel: http://127.0.0.2:7657"
 
 echo "To start the service of i2p call for: sudo systemctl start i2p"
+
+# Prompt user to install anon-apps-config
+read -p "Do you want to install anon-apps-config to improve your privacy and security? [y/n]: " anon_apps
+if [ $anon_apps = "y" ]
+then
+    wget https://www.whonix.org/derivative.asc
+    sudo cp ~/derivative.asc /usr/share/keyrings/derivative.asc
+    echo "deb [signed-by=/usr/share/keyrings/derivative.asc] https://deb.whonix.org bullseye main contrib non-free" | sudo tee /etc/apt/sources.list.d/derivative.list
+    sudo apt-get update
+    sudo apt-get install anon-apps-config
+fi
