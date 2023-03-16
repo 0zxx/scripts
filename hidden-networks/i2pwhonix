@@ -2,7 +2,7 @@
 
 # Prompt user for Whonix-Workstation or Qubes template
 read -p "Are you using Whonix-Workstation template or Qubes template? [y/n]: " whonix
-if [ $whonix = "y" ]
+if [ $whonix = "y" ];
 then
     scurl-download --tlsv1.2 https://geti2p.net/_static/i2p-archive-keyring.gpg
 else
@@ -22,7 +22,7 @@ sudo apt install --no-install-recommends i2p i2p-keyring
 
 # Prompt user to enable autorun
 read -p "Do you want to enable autorun? [y/n]: " autorun
-if [ $autorun = "y" ]
+if [ $autorun = "y" ];
 then
     sudo dpkg-reconfigure i2p
 fi
@@ -33,7 +33,7 @@ echo "To start the service of i2p call for: sudo systemctl start i2p"
 
 # Prompt user to install anon-apps-config
 read -p "Do you want to install anon-apps-config to improve your privacy and security? [y/n]: " anon_apps
-if [ $anon_apps = "y" ]
+if [ $anon_apps = "y" ];
 then
     wget https://www.whonix.org/derivative.asc
     sudo cp ~/derivative.asc /usr/share/keyrings/derivative.asc
