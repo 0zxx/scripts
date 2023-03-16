@@ -1,0 +1,15 @@
+# Add the i2p repository key
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x7AEDDCC9
+
+# Add the i2p repository
+echo "deb https://deb.i2p2.de/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/i2p.list
+
+# Update and install i2p
+sudo apt-get update
+sudo apt-get install i2p
+
+# Disable autostart on boot
+sudo systemctl disable i2p
+
+# With the autostart disabled you can start the service calling for:
+sudo systemctl start i2p
