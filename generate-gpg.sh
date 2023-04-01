@@ -1,5 +1,5 @@
 #!/bin/bash
-
+gengpg(){
 # Generate a new GPG key if one doesn't exist
 if ! gpg --list-keys > /dev/null 2>&1; then
   gpg --batch --gen-key <<EOF
@@ -18,3 +18,5 @@ gpg --batch --yes --output file.txt.gpg --encrypt --recipient "myemail@example.c
 
 # Decrypt the encrypted file
 gpg --batch --yes --output file.txt --decrypt file.txt.gpg
+}
+gengpg
